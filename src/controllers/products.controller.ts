@@ -7,6 +7,12 @@ const productsController = {
 
     res.status(201).json({ id, ...req.body });
   },
+
+  async getAll(req: Request, res: Response) {
+    const products = await productsService.getAll();
+
+    res.json(products);
+  },
 };
 
 export default productsController;
