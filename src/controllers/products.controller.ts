@@ -3,6 +3,9 @@ import productsService from '../services/products.service';
 
 const productsController = {
   async create(req: Request, res: Response) {
+    await productsService.validateName(req.body.name);
+    await productsService.validateAmount(req.body.amount);
+
     const id = await productsService.create(req.body);
 
     res.status(201).json({ id, ...req.body });
