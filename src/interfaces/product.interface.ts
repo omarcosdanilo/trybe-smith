@@ -4,5 +4,6 @@ export interface Indexable {
 
 export interface Product extends Indexable {
   name: string,
-  amount: string
+  amount: string,
+  orderId?: number
 }
