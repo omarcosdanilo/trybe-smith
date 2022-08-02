@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import ReqUser from '../interfaces/reqUser.interface';
 import orderService from '../services/order.service';
 
@@ -9,7 +9,7 @@ const orderController = {
     res.status(200).json(orders);
   },
 
-  async create(req: ReqUser, res: Response) {
+  async create(req: ReqUser, res: Response, next: NextFunction) {
     try {
       const { productsIds } = req.body;
   
@@ -19,7 +19,7 @@ const orderController = {
   
       res.status(201).json(order);
     } catch (error) {
-      console.log(error);
+      next(error);
     }
   },
 };
