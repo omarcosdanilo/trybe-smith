@@ -38,7 +38,7 @@ const orderService = {
       }),
     );
 
-    return { userId, productIds: ids };
+    return { userId, productsIds: ids };
   },
 };
 
